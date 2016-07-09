@@ -1,7 +1,7 @@
 {
   "name": "node-blinkt",
   "author": "Rob Evans - Irrelon Software Limited",
-  "description": "A Node.js Library to Interact with the Raspberry Pi Blinkt LED HAT.",
+  "description": "A Node.js Library to Interact With the Raspberry Pi Blinkt LED Hat.",
   "version": "1.0.0",
   "keywords": [
     "blinkt",
