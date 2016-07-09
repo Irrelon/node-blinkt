@@ -3,9 +3,7 @@ var wpi = require('wiring-pi'),
 	CLK = 24,
 	Blinkt;
 
-Blinkt = function () {
-
-};
+Blinkt = function () {};
 
 Blinkt.prototype.setup = function setup () {
 	// Set WPI to GPIO mode
