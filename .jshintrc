@@ -1,10 +1,10 @@
 {
-	"browserify": true,
+	"browserify": false,
 	"node": true,
 	"white": true,
 	"onevar": true,
 	"nonew": true,
-	"jquery": true,
+	"jquery": false,
 	"curly": true,
 	"latedef": true,
 	"unused": "vars",
@@ -15,6 +15,6 @@
 	"strict": true,
 	"undef": true,
 	"bitwise": true,
-	"browser": true,
+	"browser": false,
 	"esnext": true
 }
