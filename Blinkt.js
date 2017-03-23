@@ -85,11 +85,13 @@ Blinkt.prototype.setBrightness = function setBrightness (pixelNum, brightness) {
 };
 
 /**
- * Sets all pixels to white.
+ * Clears the pixel buffer.
+ * This is the same as setting all pixels to black.
+ * You must also call sendUpdate() if you want to turn Blinkt! off.
  */
 Blinkt.prototype.clearAll = function clearAll () {
 	for (var i = 0; i < this._numPixels; i++) {
-		this.setPixel(i, 255, 255, 255);
+		this.setPixel(i, 0, 0, 0);
 	}
 };
 
@@ -120,6 +122,7 @@ Blinkt.prototype.sendUpdate = function sendUpdate () {
 	}
 
 	this._writeByte(0xff);
+	this._latch();
 };
 
 /**
@@ -134,6 +137,18 @@ Blinkt.prototype._writeByte = function writeByte (byte) {
 		bit = ((byte & (1 << (7 - i))) > 0) === true ? wpi.HIGH : wpi.LOW; // jshint ignore:line
 
 		wpi.digitalWrite(DAT, bit);
+		wpi.digitalWrite(CLK, 1);
+		wpi.digitalWrite(CLK, 0);
+	}
+};
+
+/**
+ * Emit exactly enough clock pulses to latch the small dark die APA102s which are weird.
+ * @private
+ */
+Blinkt.prototype._latch = function latch() {
+	wpi.digitalWrite(DAT, 0);
+	for (var i = 0 ; i < 36; i++) {
 		wpi.digitalWrite(CLK, 1);
 		wpi.digitalWrite(CLK, 0);
 	}
