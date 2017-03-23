@@ -85,11 +85,13 @@ Blinkt.prototype.setBrightness = function setBrightness (pixelNum, brightness) {
 };
 
 /**
- * Sets all pixels to white.
+ * Clears the pixel buffer.
+ * This is the same as setting all pixels to black.
+ * You must also call sendUpdate() if you want to turn Blinkt! off.
  */
 Blinkt.prototype.clearAll = function clearAll () {
 	for (var i = 0; i < this._numPixels; i++) {
-		this.setPixel(i, 255, 255, 255);
+		this.setPixel(i, 0, 0, 0);
 	}
 };
 
