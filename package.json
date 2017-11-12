@@ -9,7 +9,7 @@
   ],
   "private": false,
   "dependencies": {
-    "wiring-pi": "2.1.1"
+    "wiringpi-node": "2.4.4"
   },
   "engines": {
     "node": "*"
