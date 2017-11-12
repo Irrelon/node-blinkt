@@ -1,6 +1,6 @@
 "use strict";
 
-var wpi = require('wiring-pi'),
+var wpi = require('wiringpi-node'),
 	DAT = 23,
 	CLK = 24,
 	Blinkt;
