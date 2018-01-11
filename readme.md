@@ -25,7 +25,7 @@ leds.sendUpdate();
 Connects to the GPIO and sets the GPIO pin modes. Must be called before any other commands.
 
 ## clearAll()
-Sets all pixels to white.
+Clears the pixel buffer. This is the same as setting all pixels to black. You must also call sendUpdate() if you want to turn Blinkt! off.
 
 ## setPixel(pixelNum, red, green, blue, brightness)
 Sets the specififed pixel to the passed rgb and brightness level. The pixelNum is
