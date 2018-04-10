@@ -17,11 +17,11 @@ Blinkt.prototype.setup = function setup (dat, clk) {
 	wpi.setup('gpio');
 
 	
-	if(!!dat && isNaN(dat)){
+	if(Boolean(dat) && isNaN(dat)){
 		//if dat has value and is not a number
 		throw new Error("The dat value must be a pin number");
 	}
-	if(!!clk && isNaN(clk)){
+	if(Boolean(clk) && isNaN(clk)){
 		//if clk has value and is not a number
 		throw new Error("The clk value must be a pin number");
 	}
