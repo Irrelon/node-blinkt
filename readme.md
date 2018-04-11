@@ -10,7 +10,7 @@ npm install node-blinkt
 # Usage
 
 ```js
-var Blinkt = require('./Blinkt'),
+var Blinkt = require('node-blinkt'),
 	leds = new Blinkt();
 
 leds.setup();
@@ -23,6 +23,9 @@ leds.sendUpdate();
 
 ## setup()
 Connects to the GPIO and sets the GPIO pin modes. Must be called before any other commands.
+
+## setup(dat, clk)
+Connects to an alternative set of GPIO pins and sets their modes. Can be called instead of the setup() function if you have wired blinkt up to alternative raspberry pi pins. The default values are 23 and 24 respectively.
 
 ## clearAll()
 Clears the pixel buffer. This is the same as setting all pixels to black. You must also call sendUpdate() if you want to turn Blinkt! off.

@@ -12,13 +12,23 @@ Blinkt = function () {};
  * before any other commands. All pixels will start off white at
  * full brightness by default.
  */
-Blinkt.prototype.setup = function setup () {
+Blinkt.prototype.setup = function setup (dat, clk) {
 	// Set WPI to GPIO mode
 	wpi.setup('gpio');
 
+	
+	if(Boolean(dat) && isNaN(dat)){
+		//if dat has value and is not a number
+		throw new Error("The dat value must be a pin number");
+	}
+	if(Boolean(clk) && isNaN(clk)){
+		//if clk has value and is not a number
+		throw new Error("The clk value must be a pin number");
+	}
+
 	// Set pin mode to output
-	wpi.pinMode(DAT, wpi.OUTPUT);
-	wpi.pinMode(CLK, wpi.OUTPUT);
+	wpi.pinMode(dat || DAT, wpi.OUTPUT);
+	wpi.pinMode(clk || CLK, wpi.OUTPUT);
 
 	this._numPixels = 8;
 	this._pixels = [];
