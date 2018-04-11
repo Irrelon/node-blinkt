@@ -62,7 +62,7 @@ Blinkt.prototype.setAllPixels = function setAllPixels (r, g, b, a) {
  * @param {Number} r The pixel red value between 0 and 255.
  * @param {Number} g The pixel green value between 0 and 255.
  * @param {Number} b The pixel blue value between 0 and 255.
- * @param {Number} a The pixel brightness value between 0.0 and 1.0.
+ * @param {Number=} a The pixel brightness value between 0.0 and 1.0.
  */
 Blinkt.prototype.setPixel = function setPixel (pixelNum, r, g, b, a) {
 	if (a === undefined) {
