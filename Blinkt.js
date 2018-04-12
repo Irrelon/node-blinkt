@@ -26,9 +26,12 @@ Blinkt.prototype.setup = function setup (dat, clk) {
 		throw new Error("The clk value must be a pin number");
 	}
 
+	this._dat = dat || DAT;
+	this._clk = clk || CLK;
+
 	// Set pin mode to output
-	wpi.pinMode(dat || DAT, wpi.OUTPUT);
-	wpi.pinMode(clk || CLK, wpi.OUTPUT);
+	wpi.pinMode(this._dat, wpi.OUTPUT);
+	wpi.pinMode(this._clk, wpi.OUTPUT);
 
 	this._numPixels = 8;
 	this._pixels = [];
@@ -146,9 +149,9 @@ Blinkt.prototype._writeByte = function writeByte (byte) {
 	for (var i = 0 ; i < this._numPixels; i++) {
 		bit = ((byte & (1 << (7 - i))) > 0) === true ? wpi.HIGH : wpi.LOW; // jshint ignore:line
 
-		wpi.digitalWrite(DAT, bit);
-		wpi.digitalWrite(CLK, 1);
-		wpi.digitalWrite(CLK, 0);
+		wpi.digitalWrite(this._dat, bit);
+		wpi.digitalWrite(this._clk, 1);
+		wpi.digitalWrite(this._clk, 0);
 	}
 };
 
@@ -157,10 +160,10 @@ Blinkt.prototype._writeByte = function writeByte (byte) {
  * @private
  */
 Blinkt.prototype._latch = function latch() {
-	wpi.digitalWrite(DAT, 0);
+	wpi.digitalWrite(this._dat, 0);
 	for (var i = 0 ; i < 36; i++) {
-		wpi.digitalWrite(CLK, 1);
-		wpi.digitalWrite(CLK, 0);
+		wpi.digitalWrite(this._clk, 1);
+		wpi.digitalWrite(this._clk, 0);
 	}
 };
 
