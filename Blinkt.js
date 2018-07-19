@@ -5,7 +5,10 @@ var wpi = require('wiringpi-node'),
 	CLK = 24,
 	Blinkt;
 
-Blinkt = function () {};
+Blinkt = function () {
+	this.brightnessmask = 0x1F; // 0b11111
+	this.significantbitsmask = 0xE0; //0b11100000
+};
 
 /**
  * Connects to the GPIO and sets the GPIO pin modes. Must be called
@@ -74,7 +77,7 @@ Blinkt.prototype.setPixel = function setPixel (pixelNum, r, g, b, a) {
 			a = this._pixels[pixelNum][3] !== undefined ? this._pixels[pixelNum][3] : 1.0;
 		}
 	} else {
-		a = parseInt((31.0 * a), 10) & 0b11111; // jshint ignore:line
+		a = parseInt((31.0 * a), 10) & this.brightnessmask; // jshint ignore:line
 	}
 
 	this._pixels[pixelNum] = [
@@ -94,7 +97,7 @@ Blinkt.prototype.setPixel = function setPixel (pixelNum, r, g, b, a) {
  * and 1.0.
  */
 Blinkt.prototype.setBrightness = function setBrightness (pixelNum, brightness) {
-	this._pixels[pixelNum][3] = parseInt((31.0 * brightness), 10) & 0b11111; // jshint ignore:line
+	this._pixels[pixelNum][3] = parseInt((31.0 * brightness), 10) & this.brightnessmask; // jshint ignore:line
 };
 
 /**
@@ -125,7 +128,7 @@ Blinkt.prototype.sendUpdate = function sendUpdate () {
 		pixel = this._pixels[i];
 
 		// Brightness
-		this._writeByte(0b11100000 | pixel[3]); // jshint ignore:line
+		this._writeByte(this.significantbitsmask | pixel[3]); // jshint ignore:line
 		// Blue
 		this._writeByte(pixel[2]);
 		// Green
