@@ -1,4 +1,4 @@
-var Blinkt = require('./Blinkt'),
+var Blinkt = require('../Blinkt'),
 	leds = new Blinkt();
 
 leds.setup();
