@@ -46,5 +46,4 @@ This method is the most important. You can set pixels colours as much as you wan
 will not update until you call this method.
 
 # Copyright and License
-All works are copyright Irrelon Software Limited. You may use this project under any open-source
-license that you wish e.g. (MIT, GPL etc).
+All works are copyright Irrelon Software Limited. You may use this project under any license that you wish e.g. (MIT, GPL etc). You may use this software, source code, project, part of or in entirety for any reason under any license you wish, or no license at all. The software is given away freely and may be used for non-commercial and commercial, educational, governmental or any other purpose free of charge and free of license. Just go use it!
