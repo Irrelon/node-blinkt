@@ -112,6 +112,16 @@ Blinkt.prototype.clearAll = function clearAll () {
 };
 
 /**
+ * Clears the pixel .
+ * This is the same as setting this pixels to black.
+ * You must also call sendUpdate() if you want to turn Blinkt! off.
+ * @param {Number} led index to clear.
+ */
+Blinkt.prototype.clear = function clear (i) { 
+		this.setPixel(i, 0, 0, 0); 
+};
+
+/**
  * Sends the current pixel settings to the Blinkt! device. Once you
  * have set each pixel RGB and brightness, you MUST call this for the
  * pixels to change on the Blinkt! device.
