@@ -27,5 +27,6 @@
   },
   "devDependencies": {
     "eslint-config-irrelon": "^1.0.2"
-  }
+  },
+  "license": "ISC"
 }
