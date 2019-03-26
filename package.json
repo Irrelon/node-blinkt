@@ -3,6 +3,10 @@
   "author": "Rob Evans - Irrelon Software Limited",
   "description": "A Node.js Library to Interact With the Raspberry Pi Blinkt! LED Hat.",
   "version": "1.0.3",
+  "main": "./Blinkt",
+  "scripts": {
+    "test": "node example"
+  },
   "keywords": [
     "blinkt",
     "irrelon"
@@ -18,7 +22,6 @@
     "type": "git",
     "url": "git://github.com/irrelon/node-blinkt.git"
   },
-  "main": "./Blinkt",
   "bugs": {
     "url": "http://github.com/irrelon/node-blinkt/issues"
   },
