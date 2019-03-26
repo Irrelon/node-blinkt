@@ -1,5 +1,5 @@
-var Blinkt = require('../Blinkt'),
-	leds = new Blinkt();
+const Blinkt = require('../Blinkt');
+const leds = new Blinkt();
 
 leds.setup();
 leds.clearAll();
