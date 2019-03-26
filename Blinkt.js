@@ -1,11 +1,8 @@
-"use strict";
-
-var wpi = require('wiringpi-node'),
+const wpi = require('wiringpi-node'),
 	DAT = 23,
-	CLK = 24,
-	Blinkt;
+	CLK = 24;
 
-Blinkt = function () {};
+const Blinkt = function () {};
 
 /**
  * Connects to the GPIO and sets the GPIO pin modes. Must be called
