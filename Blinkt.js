@@ -15,12 +15,12 @@ const Blinkt = function () {
 Blinkt.prototype.setup = function setup (dat, clk) {
 	// Set WPI to GPIO mode
 	wpi.setup('gpio');
-
 	
 	if(Boolean(dat) && isNaN(dat)){
 		//if dat has value and is not a number
 		throw new Error("The dat value must be a pin number");
 	}
+	
 	if(Boolean(clk) && isNaN(clk)){
 		//if clk has value and is not a number
 		throw new Error("The clk value must be a pin number");
@@ -37,7 +37,7 @@ Blinkt.prototype.setup = function setup (dat, clk) {
 	this._pixels = [];
 
 	// Init pixels
-	for (var i = 0; i < this._numPixels; i++) {
+	for (let i = 0; i < this._numPixels; i++) {
 		this.setPixel(i, 255, 255, 255, 1.0);
 	}
 };
@@ -50,7 +50,7 @@ Blinkt.prototype.setup = function setup (dat, clk) {
  * @param {Number} a The pixel brightness value between 0.0 and 1.0.
  */
 Blinkt.prototype.setAllPixels = function setAllPixels (r, g, b, a) {
-	for (var i = 0; i < this._numPixels; i++) {
+	for (let i = 0; i < this._numPixels; i++) {
 		this.setPixel(i, r, g, b, a);
 	}
 };
@@ -124,7 +124,7 @@ Blinkt.prototype.clear = function clear (led) {
  * pixels to change on the Blinkt! device.
  */
 Blinkt.prototype.sendUpdate = function sendUpdate () {
-	var i,
+	let i,
 		pixel;
 
 	for (i = 0; i < 4; i++) {
