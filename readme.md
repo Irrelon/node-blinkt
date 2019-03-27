@@ -66,6 +66,14 @@ make run/iotjs
 
 [![iotjs-wiringpi](https://pbs.twimg.com/ext_tw_video_thumb/1019945702791766017/pu/img/bbbNf-HJR2FkUb5l.jpg)](https://twitter.com/TizenHelper/status/1019945989388546048# "blinkt-node")
 
+# Development
+Only modify files in the ./src folder. The ./dist folder is generated from the ./src folder via babel to produce an ES5 version.
+
+You can modify the ./src/Blinkt.js file but please ensure you correctly document the functions you make using JSDoc. Run "npm run eslint" to check your code for errors before committing and fix all issues. You can also run "npm run eslint-fix" to auto-fix most common issues before fixing manual ones.
+
+Once you are ready to commit an update, run "npm run build" which will generate a new ES5 build. Make sure you update the package.json version as well.
+
+Thanks! 
 
 # Copyright and License
 All works are copyright Irrelon Software Limited. You may use this project under any license that you wish e.g. (MIT, GPL etc). You may use this software, source code, project, part of or in entirety for any reason under any license you wish, or no license at all. The software is given away freely and may be used for non-commercial and commercial, educational, governmental or any other purpose free of charge and free of license. Just go use it!
