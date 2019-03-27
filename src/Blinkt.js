@@ -1,4 +1,4 @@
-const wpi = require('wiringpi-node'),
+const wpi = require("wiringpi-node"),
 	DAT = 23,
 	CLK = 24;
 
@@ -11,10 +11,13 @@ const Blinkt = function () {
  * Connects to the GPIO and sets the GPIO pin modes. Must be called
  * before any other commands. All pixels will start off white at
  * full brightness by default.
+ * @param {Number} dat The data pin number.
+ * @param {Number} clk The clock pin number.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.setup = function setup (dat, clk) {
 	// Set WPI to GPIO mode
-	wpi.setup('gpio');
+	wpi.setup("gpio");
 	
 	if(Boolean(dat) && isNaN(dat)){
 		//if dat has value and is not a number
@@ -48,6 +51,7 @@ Blinkt.prototype.setup = function setup (dat, clk) {
  * @param {Number} g The pixel green value between 0 and 255.
  * @param {Number} b The pixel blue value between 0 and 255.
  * @param {Number} a The pixel brightness value between 0.0 and 1.0.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.setAllPixels = function setAllPixels (r, g, b, a) {
 	for (let i = 0; i < this._numPixels; i++) {
@@ -66,6 +70,7 @@ Blinkt.prototype.setAllPixels = function setAllPixels (r, g, b, a) {
  * @param {Number} g The pixel green value between 0 and 255.
  * @param {Number} b The pixel blue value between 0 and 255.
  * @param {Number=} a The pixel brightness value between 0.0 and 1.0.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.setPixel = function setPixel (pixelNum, r, g, b, a) {
 	if (a === undefined) {
@@ -92,6 +97,7 @@ Blinkt.prototype.setPixel = function setPixel (pixelNum, r, g, b, a) {
  * the last one.
  * @param {Number} brightness The pixel brightness value between 0.0
  * and 1.0.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.setBrightness = function setBrightness (pixelNum, brightness) {
 	this._pixels[pixelNum][3] = parseInt((31.0 * brightness), 10) & this.brightnessmask; // jshint ignore:line
@@ -101,6 +107,7 @@ Blinkt.prototype.setBrightness = function setBrightness (pixelNum, brightness) {
  * Clears the pixel buffer.
  * This is the same as setting all pixels to black.
  * You must also call sendUpdate() if you want to turn Blinkt! off.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.clearAll = function clearAll () {
 	for (let i = 0; i < this._numPixels; i++) {
@@ -113,6 +120,7 @@ Blinkt.prototype.clearAll = function clearAll () {
  * This is the same as setting this pixels to black.
  * You must also call sendUpdate() if you want to turn Blinkt! off.
  * @param {Number} led index to clear.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.clear = function clear (led) {
 	this.setPixel(led, 0, 0, 0);
@@ -122,6 +130,7 @@ Blinkt.prototype.clear = function clear (led) {
  * Sends the current pixel settings to the Blinkt! device. Once you
  * have set each pixel RGB and brightness, you MUST call this for the
  * pixels to change on the Blinkt! device.
+ * @returns {undefined} Nothing.
  */
 Blinkt.prototype.sendUpdate = function sendUpdate () {
 	let i,
@@ -151,6 +160,7 @@ Blinkt.prototype.sendUpdate = function sendUpdate () {
 /**
  * Writes byte data to the GPIO pins.
  * @param {Number} byte The byte value to write.
+ * @returns {undefined} Nothing.
  * @private
  */
 Blinkt.prototype._writeByte = function writeByte (byte) {
@@ -167,9 +177,10 @@ Blinkt.prototype._writeByte = function writeByte (byte) {
 
 /**
  * Emit exactly enough clock pulses to latch the small dark die APA102s which are weird.
+ * @returns {undefined} Nothing.
  * @private
  */
-Blinkt.prototype._latch = function latch() {
+Blinkt.prototype._latch = function latch () {
 	wpi.digitalWrite(this._dat, 0);
 	
 	for (let i = 0 ; i < 36; i++) {

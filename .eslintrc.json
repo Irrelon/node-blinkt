@@ -1,8 +1,7 @@
 {
 	"extends": ["eslint-config-irrelon"],
 	"plugins": [
-		"react",
-		"react-native"
+
 	],
 	"env" : {
 		"browser" : true,

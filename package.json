@@ -2,12 +2,16 @@
   "name": "node-blinkt",
   "author": "Rob Evans - Irrelon Software Limited",
   "description": "A Node.js Library to Interact With the Raspberry Pi Blinkt! LED Hat.",
-  "version": "1.0.4",
-  "main": "./Blinkt",
+  "version": "1.0.5",
+  "main": "./dist/Blinkt",
   "scripts": {
-    "test": "node example"
+    "test": "node example",
+    "build": "rimraf dist && babel ./src/*.js --out-dir dist",
+    "eslint": "eslint ./src/**.js ./tests/**.js",
+    "eslint-fix": "eslint --fix ./src/**.js"
   },
   "keywords": [
+    "node",
     "blinkt",
     "irrelon"
   ],
@@ -26,7 +30,18 @@
     "url": "http://github.com/irrelon/node-blinkt/issues"
   },
   "devDependencies": {
-    "eslint-config-irrelon": "^1.0.2"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "*",
+    "eslint-config-irrelon": "^1.0.2",
+    "rimraf": "^2.6.3"
   },
   "license": "ISC"
 }
