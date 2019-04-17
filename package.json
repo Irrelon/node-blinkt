@@ -6,7 +6,7 @@
   "main": "./dist/Blinkt",
   "scripts": {
     "test": "node example",
-    "build": "rimraf dist && babel ./src/*.js --out-dir dist",
+    "build": "rimraf dist && babel ./src/*.js --out-dir dist && babel ./example/*.js --out-dir dist/example",
     "eslint": "eslint ./src/**.js ./tests/**.js",
     "eslint-fix": "eslint --fix ./src/**.js"
   },
