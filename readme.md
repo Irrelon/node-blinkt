@@ -54,14 +54,14 @@ targeting more constrained devices.
 First you need to install iotjs from source or precompiled package:
 
 * https://iotjs.net
-* https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
-* https://s-opensource.org/2018/04/20/iot-js-landed-raspbian/
-* https://github.com/rzr/webthing-iotjs/wiki
+* https://github.com/rzr/webthing-iotjs/wiki/IotJs
+* https://libraries.io/npm/wiringpi-iotjs
 
 Usage:
 
 ```sh
-make run/iotjs
+git clone --depth 1 https://github.com/Irrelon/node-blinkt ; cd node-blinkt
+make start
 ```
 
 [![iotjs-wiringpi](https://pbs.twimg.com/ext_tw_video_thumb/1019945702791766017/pu/img/bbbNf-HJR2FkUb5l.jpg)](https://twitter.com/TizenHelper/status/1019945989388546048# "blinkt-node")
