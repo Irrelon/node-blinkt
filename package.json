@@ -17,7 +17,7 @@
   ],
   "private": false,
   "dependencies": {
-    "wiringpi-node": "2.4.4"
+    "node-wiring-pi": "0.0.5"
   },
   "engines": {
     "node": "*"
