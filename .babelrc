@@ -14,14 +14,6 @@
 		"@babel/plugin-proposal-object-rest-spread"
 	],
 	"ignore": [
-		"node_modules",
-		"assets",
-		"view",
-		"public",
-		"test",
-		"spec",
-		"logs",
-		"lib/jasmine_examples",
-		"db"
+		"node_modules"
 	]
 }
