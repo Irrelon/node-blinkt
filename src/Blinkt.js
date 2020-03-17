@@ -1,4 +1,4 @@
-const wpi = require("wiringpi-node"),
+const wpi = require("node-wiring-pi"),
 	DAT = 23,
 	CLK = 24;
 
